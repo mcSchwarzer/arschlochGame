@@ -23,8 +23,8 @@ public class DeckOfCards {
 		
 		
 		
-		public void createDeckOfArschlochcardsCards(){	//TODO: give him the String[] from config and iterate through that
-			for(int i = 0; i < CARD_STACK_SIZE; i++){	
+		public void createDeckOfArschlochcardsCards(){
+			for(int i = 0; i < CARD_STACK_SIZE; i++){
 				this.deckOfCards.add(new ArschlochCard(i));
 			}
 		}

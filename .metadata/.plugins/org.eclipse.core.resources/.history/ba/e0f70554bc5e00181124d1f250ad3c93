@@ -6,11 +6,11 @@ public class AbstractCard {
 	public static class ArschlochCard implements Comparable<ArschlochCard>{
 		private int posInDeck; //hearts, diamonds, spades, clubs
 		private String name; // full name like "nine of diamonds"
-		private int CardStackSize = 32;	//TODO: dynamically by giving through the String[] of CardNames or with a simple get DeckSize from deckOfCards
+		private int CardStackSize = 32;	//default
 		
 
 		public ArschlochCard(int posInDeck){
-			this.setName(Config.getCardNames32()[posInDeck]);
+			this.setName(ArschlochCard.getCardNames()[posInDeck]);
 			this.setPosInDeck(posInDeck);
 		}		
 		

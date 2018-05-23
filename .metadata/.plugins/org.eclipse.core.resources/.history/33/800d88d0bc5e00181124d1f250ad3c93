@@ -46,11 +46,11 @@ public class Config {
 		this.number_of_players = number_of_players;
 	}
 
-	public static String[] getCardNames32() {
+	public static String[] getCardnames32() {
 		return cardNames_32;
 	}
 
-	public static String[] getCardNames52() {
+	public static String[] getCardnames52() {
 		return cardNames_52;
 	}
 	

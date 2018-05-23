@@ -4,8 +4,8 @@ import abstractGameObjects.AbstractCardStack.ArschlochCardStack;
 import abstractGameObjects.DeckOfCards.DeckOfArschlochcards;
 
 public class Config {
-	private int stack_size;
-	private int number_of_players;
+	int stack_size;
+	int number_of_players;
 	private static final String[] cardNames_32 = {		
 			"Seven of Hearts","Eight of Hearts","Nine of Hearts","Ten of Hearts","Jack of Hearts","Queen of Hearts","King of Hearts","ACE of Hearts",
 			"Seven of Diamonds","Eight of Diamonds","Nine of Diamonds","Ten of Diamonds","Jack of Diamonds","Queen of Diamonds","King of Diamonds","ACE of Diamonds",
@@ -44,14 +44,6 @@ public class Config {
 	public void setNumber_of_players(int number_of_players) throws Exception {
 		if(number_of_players < 2){throw new Exception("You cant play alone");}
 		this.number_of_players = number_of_players;
-	}
-
-	public static String[] getCardNames32() {
-		return cardNames_32;
-	}
-
-	public static String[] getCardNames52() {
-		return cardNames_52;
 	}
 	
 	

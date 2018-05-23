@@ -30,8 +30,8 @@ public class AbstractCardTest{
 		int CardPos = 0;
 		for(ArschlochCard aCard : cards){
 			
-			assertEquals(Config.getCardNames32()[CardPos], aCard.getName());
-			System.out.println("Kompletter Name der Karte: " + Config.getCardNames32()[CardPos] + " = " + aCard.getName());
+			assertEquals(Config.getCardnames32()[CardPos], aCard.getName());
+			System.out.println("Kompletter Name der Karte: " + Config.getCardnames32()[CardPos] + " = " + aCard.getName());
 			
 			assertEquals(CardPos, CardPos, aCard.getPosInDeck());
 			System.out.println("Position im gesamten Kartenstapel: " + CardPos + " = " + aCard.getPosInDeck());

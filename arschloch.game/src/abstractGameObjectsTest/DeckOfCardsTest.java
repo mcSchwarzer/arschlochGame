@@ -6,8 +6,8 @@ import static org.junit.Assert.assertNotEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import abstractGameObjects.AbstractCard.ArschlochCard;
 import abstractGameObjects.AbstractPlayer.ArschlochPlayer;
+import abstractGameObjects.Config;
 import abstractGameObjects.DeckOfCards.DeckOfArschlochcards;
 
 public class DeckOfCardsTest {
@@ -26,28 +26,28 @@ public class DeckOfCardsTest {
 	
 	@Test
 	public void CardsTest() {
-		assertEquals(ArschlochCard.getCardNames()[0], deckOfCards.getDeckOfCards().get(0).getName());
-		System.out.println(ArschlochCard.getCardNames()[0] + " : " + deckOfCards.getDeckOfCards().get(0).getName());
+		assertEquals(Config.getCardNames32()[0], deckOfCards.getDeckOfCards().get(0).getName());
+		System.out.println(Config.getCardNames32()[0] + " : " + deckOfCards.getDeckOfCards().get(0).getName());
 		
-		assertEquals(ArschlochCard.getCardNames()[5], deckOfCards.getDeckOfCards().get(5).getName());
-		System.out.println(ArschlochCard.getCardNames()[5] + " : " + deckOfCards.getDeckOfCards().get(5).getName());
+		assertEquals(Config.getCardNames32()[5], deckOfCards.getDeckOfCards().get(5).getName());
+		System.out.println(Config.getCardNames32()[5] + " : " + deckOfCards.getDeckOfCards().get(5).getName());
 		
-		assertEquals(ArschlochCard.getCardNames()[28], deckOfCards.getDeckOfCards().get(28).getName());
-		System.out.println(ArschlochCard.getCardNames()[28] + " : " + deckOfCards.getDeckOfCards().get(28).getName());
+		assertEquals(Config.getCardNames32()[28], deckOfCards.getDeckOfCards().get(28).getName());
+		System.out.println(Config.getCardNames32()[28] + " : " + deckOfCards.getDeckOfCards().get(28).getName());
 	}
 	
 	@Test
 	public void ShuffleTest(){
-		assertEquals(ArschlochCard.getCardNames()[19], deckOfCards.getDeckOfCards().get(19).getName());
-		System.out.println(ArschlochCard.getCardNames()[19] + " : " + deckOfCards.getDeckOfCards().get(19).getName());
+		assertEquals(Config.getCardNames32()[19], deckOfCards.getDeckOfCards().get(19).getName());
+		System.out.println(Config.getCardNames32()[19] + " : " + deckOfCards.getDeckOfCards().get(19).getName());
 		
 		System.out.println("SHUFFLE");
 		this.deckOfCards.shuffle_deck(30);
 		System.out.println(this.deckOfCards);
 		
-		assertNotEquals(ArschlochCard.getCardNames()[0], this.deckOfCards.getDeckOfCards().get(0));
-		assertNotEquals(ArschlochCard.getCardNames()[31], this.deckOfCards.getDeckOfCards().get(31));
-		assertNotEquals(ArschlochCard.getCardNames()[15], this.deckOfCards.getDeckOfCards().get(15));
+		assertNotEquals(Config.getCardNames32()[0], this.deckOfCards.getDeckOfCards().get(0));
+		assertNotEquals(Config.getCardNames32()[31], this.deckOfCards.getDeckOfCards().get(31));
+		assertNotEquals(Config.getCardNames32()[15], this.deckOfCards.getDeckOfCards().get(15));
 	}
 	
 	@Test
@@ -57,9 +57,9 @@ public class DeckOfCardsTest {
 		for(int i = 0; i < 13; i++){
 			
 			this.deckOfCards.giveOutArschlochCard(this.player1);
-			assertEquals(ArschlochCard.getCardNames()[i], player1.getCardsInHand().get(i).getName());
-			System.out.println(ArschlochCard.getCardNames()[i] + " : " + player1.getCardsInHand().get(i).getName());
-			assertNotEquals(ArschlochCard.getCardNames()[i], this.deckOfCards.getDeckOfCards().get(i).getName());
+			assertEquals(Config.getCardNames32()[i], player1.getCardsInHand().get(i).getName());
+			System.out.println(Config.getCardNames32()[i] + " : " + player1.getCardsInHand().get(i).getName());
+			assertNotEquals(Config.getCardNames32()[i], this.deckOfCards.getDeckOfCards().get(i).getName());
 			
 		}
 	}
