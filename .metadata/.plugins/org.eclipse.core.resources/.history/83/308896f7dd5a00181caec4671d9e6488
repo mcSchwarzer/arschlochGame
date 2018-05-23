@@ -1,0 +1,56 @@
+package abstractGameObjects;
+
+import abstractGameObjects.AbstractCard.ArschlochCard;
+
+public class AbstractPlayer {
+	
+	public static class ArschlochPlayer{
+		
+		private String username;
+		private ArschlochCard[] cardsInHand;
+		private int role; // 0 = normie, 1 = secondPlace, 2 = firstPlace, -1 = secondLastPlace, -2 = lastPlace 
+		
+		
+		
+		
+		
+		
+		
+		public ArschlochPlayer(String username){
+			this.setUsername(username);
+			cardsInHand = new ArschlochCard[13];
+			role = 0;
+		}
+		
+		public boolean placeCards(ArschlochCard[] cardsToPlace){
+			
+			
+		}
+		
+		
+		
+		
+		public String getUsername() {
+			return username;
+		}
+		public void setUsername(String username) {
+			this.username = username;
+		}
+		public ArschlochCard[] getCardsInHand() {
+			return cardsInHand;
+		}
+		public void setCardsInHand(ArschlochCard[] cardsInHand) {
+			this.cardsInHand = cardsInHand;
+		}
+		public int getRole() {
+			return role;
+		}
+		public void setRole(int role) {
+			this.role = role;
+		}
+		
+		
+		
+	}
+
+}

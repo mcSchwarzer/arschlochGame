@@ -1,0 +1,78 @@
+package abstractGameObjectsTest;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import abstractGameObjects.AbstractCard.ArschlochCard;
+import abstractGameObjects.AbstractCardStack.ArschlochCardStack;
+import abstractGameObjects.AbstractPlayer.ArschlochPlayer;
+import abstractGameObjects.DeckOfCards.DeckOfArschlochcards;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+
+public class AbstractPlayerTest {
+
+	ArschlochPlayer player1;
+	ArschlochPlayer player2;
+	ArschlochPlayer player3;
+	ArschlochPlayer player4;
+	ArschlochCardStack cardStack;
+	DeckOfArschlochcards deckOfCards;
+	
+	@Before
+	public void setUp(){
+		player1 = new ArschlochPlayer("Markus Schwarzer");
+		player2 = new ArschlochPlayer("Max Huber");
+		player3 = new ArschlochPlayer("Martin Kempcke");
+		player4 = new ArschlochPlayer("Jan Zimny");
+		cardStack = new ArschlochCardStack();
+		deckOfCards = new DeckOfArschlochcards();
+	}
+	
+	@Test
+	public void addCardTohand(){
+		int i = 0;
+		for (ArschlochCard aC : deckOfCards.getDeckOfCards()) {
+			if(i == 4){
+				i=0;
+			}
+
+			switch (i) {
+			case 0: player1.addCardTohand(aC); break;
+			case 1: player2.addCardTohand(aC); break;
+			case 2: player3.addCardTohand(aC); break;
+			case 3: player4.addCardTohand(aC); break;
+
+			}
+
+			i++;
+		}
+		System.out.println(player1);
+		System.out.println(player2);
+		System.out.println(player3);
+		System.out.println(player4);
+		assertEquals(8, player1.getCardsInHand().size());
+		assertEquals(8, player2.getCardsInHand().size());
+		assertEquals(8, player3.getCardsInHand().size());
+		assertEquals(8, player4.getCardsInHand().size());
+	}
+	
+	@Test
+	public void placeCardsTest(){
+		
+	}
+	
+	@Test
+	public void removeCardFomHandTest(){
+
+	}
+	
+
+
+}

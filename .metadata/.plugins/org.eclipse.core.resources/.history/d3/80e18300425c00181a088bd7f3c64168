@@ -1,0 +1,12 @@
+package testSuite;
+
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import org.junit.runners.Suite.SuiteClasses;
+import abstractGameObjectsTest.*;
+
+@RunWith(Suite.class)
+@SuiteClasses({AbstractCardTest.class, DeckOfCardsTest.class, AbstractCardStackTest.class, AbstractPlayerTest.class})
+public class ArschlochTestSuite {
+
+}

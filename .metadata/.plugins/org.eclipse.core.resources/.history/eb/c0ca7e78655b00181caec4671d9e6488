@@ -1,0 +1,33 @@
+package abstractGameObjects;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import abstractGameObjects.AbstractCard.ArschlochCard;
+import abstractGameObjects.DeckOfCards.DeckOfArschlochcards;
+
+public class DeckOfCardsTest {
+
+	DeckOfArschlochcards deckOfCards;
+	
+	@Before
+	public void setUp(){
+		this.deckOfCards = new DeckOfArschlochcards();
+	}
+	
+	
+	
+	
+	@Test
+	public void CardsTest() {
+		deckOfCards.getDeckOfCards().get(0);
+		assertEquals(ArschlochCard.getCardNames()[5], deckOfCards.getDeckOfCards().get(5).getName());
+		
+	}
+
+	
+	
+	//expected --> actual
+}

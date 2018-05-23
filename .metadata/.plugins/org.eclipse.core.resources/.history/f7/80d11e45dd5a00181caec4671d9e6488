@@ -1,0 +1,42 @@
+package abstractGameObjects;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+import abstractGameObjects.AbstractCard.ArschlochCard;
+
+public class DeckOfCards {
+
+	public static class DeckOfArschlochcards{
+		
+		private final static int CARD_STACK_SIZE = 32;
+		private ArrayList<ArschlochCard> deckOfCards = new ArrayList<ArschlochCard>();	
+		
+		
+		
+		
+		public  void createDeckOfCards() throws Exception{
+			for(int i = 0; i < CARD_STACK_SIZE; i++){
+				this.deckOfCards.add(new ArschlochCard(i));
+			}
+		}
+		
+		public void shuffle_deck(int amount_of_shuffles){
+			for(int i = 0; i < amount_of_shuffles; i++){
+				Collections.sort(this.deckOfCards);
+			}
+			System.out.println("INFO\tshuffeling is done");
+		}
+		
+		
+		
+		
+		
+	}
+}
+
+//TODO: what is done ? ... cards for the start the deck for the start
+//TODO: what has to be done? well there are no meethods for handing cards out from the deck
+//TODO: method for sorting, or different sorting algorithms and techniques like cutting and shuffling
+//TODO: UI
+//TODO: multiplayer

@@ -1,0 +1,75 @@
+package abstractGameObjects;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import abstractGameObjects.AbstractCard.ArschlochCard;
+
+public class AbstractCardStack {
+	public static class ArschlochCardStack{
+		private ArrayList<ArschlochCard> cardStack;
+		private ArschlochCard[] lastCards;
+		ArschlochCard startCard = new ArschlochCard(0);
+
+		
+		
+		
+		public ArschlochCardStack(){
+			this.setCardStack(new ArrayList<ArschlochCard>());
+			startCard.setName("start");
+			lastCards = new ArschlochCard[]{startCard};
+		}
+		
+
+		public void putOnStack(ArschlochCard[] cardsToPutOnStack) throws Exception{
+			if(lastCards[0].getName().equals("start")){
+				this.setLastCards(cardsToPutOnStack);
+				for (ArschlochCard aC : cardsToPutOnStack) {
+					this.cardStack.add(aC);
+				}
+				return;
+			}
+			
+			if(cardsToPutOnStack.length > 1){
+				for (ArschlochCard aC : cardsToPutOnStack) {
+					if(!(aC.getPosInType() == cardsToPutOnStack[0].getPosInType())){
+						throw new Exception("Cards_are_not_on_the_same_typelvl");
+					}
+				}
+			}
+			
+			if(cardsToPutOnStack[0].getPosInType() <= lastCards[0].getPosInType()){
+				throw new Exception("Cards_have_too_low_typelvl");
+			}
+			
+			if(cardsToPutOnStack.length < lastCards.length){
+				throw new Exception("Cards_in_too_small_number");
+			}
+			
+			if(cardsToPutOnStack.length > 4){
+				throw new Exception("You_can't_play_more_than_4");
+			}
+			
+			this.setLastCards(cardsToPutOnStack);
+			for (ArschlochCard aC : cardsToPutOnStack) {
+				this.getCardStack().add(aC);
+			}
+			System.out.println("INFO\tCards placed on Stack. End of Turn");
+		}
+		
+		public List<ArschlochCard> getCardStack() {
+			return cardStack;
+		}
+		public void setCardStack(ArrayList<ArschlochCard> cardStack) {
+			this.cardStack = cardStack;
+		}
+		public ArschlochCard[] getLastCards() {
+			return lastCards;
+		}
+		public void setLastCards(ArschlochCard[] lastCards) {
+			this.lastCards = lastCards;
+		}
+		
+
+	}
+}

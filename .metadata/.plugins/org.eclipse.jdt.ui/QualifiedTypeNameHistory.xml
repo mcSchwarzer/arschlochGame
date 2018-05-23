@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.lang.Comparable"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="abstractGameObjects.AbstractCard"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="abstractGameObjects.AbstractCard.arschlochCard"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="org.junit.BeforeClass"/>
+<fullyQualifiedTypeName name="org.junit.internal.runners.statements.Fail"/>
+<fullyQualifiedTypeName name="org.junit.runner.RunWith"/>
+<fullyQualifiedTypeName name="org.junit.runners.Suite"/>
+<fullyQualifiedTypeName name="org.junit.runners.Suite.SuiteClasses"/>
+<fullyQualifiedTypeName name="abstractGameObjectsTest.AbstractCardTest"/>
+<fullyQualifiedTypeName name="abstractGameObjectsTest.DeckOfCardsTest"/>
+<fullyQualifiedTypeName name="abstractGameObjectsTest.AbstractCardStackTest"/>
+<fullyQualifiedTypeName name="abstractGameObjectsTest.AbstractPlayerTest"/>
+<fullyQualifiedTypeName name="org.junit.runner.Result"/>
+<fullyQualifiedTypeName name="org.junit.runner.JUnitCore"/>
+<fullyQualifiedTypeName name="testSuite.ArschlochTestSuite"/>
+<fullyQualifiedTypeName name="org.junit.runner.notification.Failure"/>
+<fullyQualifiedTypeName name="abstractGameObjects.DeckOfCards"/>
+<fullyQualifiedTypeName name="abstractGameObjects.ArschlochGame"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="abstractGameObjects.Config"/>
+<fullyQualifiedTypeName name="abstractGameObjects.DeckOfCards.DeckOfArschlochcards"/>
+<fullyQualifiedTypeName name="abstractGameObjects.AbstractCardStack.ArschlochCardStack"/>
+<fullyQualifiedTypeName name="abstractGameObjects.AbstractPlayer.ArschlochPlayer"/>
+<fullyQualifiedTypeName name="abstractGameObjects.AbstractCard.ArschlochCard"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="abstractGameObjects.ArschlochGame.ArschlochGameRanking"/>
+</qualifiedTypeNameHistroy>

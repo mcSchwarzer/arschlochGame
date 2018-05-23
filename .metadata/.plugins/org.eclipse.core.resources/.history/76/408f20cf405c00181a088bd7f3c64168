@@ -1,0 +1,19 @@
+package testSuite;
+
+import org.junit.runner.JUnitCore;
+import org.junit.runner.Result;
+import org.junit.runner.notification.Failure;
+
+public class ArschlochTestRunner {
+
+	public static void main (String[] args){
+		Result testResult = JUnitCore.runClasses(ArschlochTestSuite.class);
+		for (Failure fail : testResult.getFailures()) {
+			System.out.println(fail.toString());
+		}
+		System.out.println("TestSuite was succesful: " + testResult.wasSuccessful());
+		
+	}
+	
+	
+}

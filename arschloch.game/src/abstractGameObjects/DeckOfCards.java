@@ -1,0 +1,86 @@
+package abstractGameObjects;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+import abstractGameObjects.AbstractCard.ArschlochCard;
+import abstractGameObjects.AbstractPlayer.ArschlochPlayer;
+
+public class DeckOfCards {
+
+	public static class DeckOfArschlochcards{
+		
+		private static int CARD_STACK_SIZE = 32;
+		private ArrayList<ArschlochCard> deckOfCards = new ArrayList<ArschlochCard>();	
+		
+		public DeckOfArschlochcards(){
+			this.createDeckOfArschlochcardsCards();
+		}
+		public DeckOfArschlochcards(int i){
+			
+		}
+		
+		
+		
+		
+		public void createDeckOfArschlochcardsCards(){
+			for(int i = 0; i < CARD_STACK_SIZE; i++){
+				this.deckOfCards.add(new ArschlochCard(i));
+			}
+		}
+		
+		public void shuffle_deck(int amount_of_shuffles){
+			for(int i = 0; i < amount_of_shuffles; i++){
+				Collections.shuffle(this.deckOfCards);
+			}
+			System.out.println("INFO\tshuffeling is done");
+		}
+		
+		public void sort_deck(int amount_of_shuffles){
+			for(int i = 0; i < amount_of_shuffles; i++){
+				Collections.sort(this.deckOfCards);
+			}
+			System.out.println("INFO\tsorting is done");
+		}
+		
+		
+		public void giveOutArschlochCard(ArschlochPlayer aP){
+			ArschlochCard aC = this.getDeckOfCards().remove(0);
+			aP.addCardToHand(aC);
+		}
+		
+		
+		@Override
+		public String toString(){
+			String retString = "";
+			for (ArschlochCard aC : this.getDeckOfCards()) {
+				retString+=aC.toString() + "\n";
+			}
+			return retString;
+		}
+		
+		
+		public ArrayList<ArschlochCard> getDeckOfCards() {
+			return deckOfCards;
+		}
+		public void setDeckOfCards(ArrayList<ArschlochCard> deckOfCards) {
+			this.deckOfCards = deckOfCards;
+		}
+		public static int getCardStackSize() {
+			return CARD_STACK_SIZE;
+		}
+		public static int getCARD_STACK_SIZE() {
+			return CARD_STACK_SIZE;
+		}
+		public static void setCARD_STACK_SIZE(int cARD_STACK_SIZE) {
+			CARD_STACK_SIZE = cARD_STACK_SIZE;
+		}
+		
+	}
+}
+
+//TODO: what is done ? ... cards for the start the deck for the start
+//TODO: what has to be done? well there are no meethods for handing cards out from the deck
+//TODO: method for sorting, or different sorting algorithms and techniques like cutting and shuffling
+//TODO: UI
+//TODO: multiplayer

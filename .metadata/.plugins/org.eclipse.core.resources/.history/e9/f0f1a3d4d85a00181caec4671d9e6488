@@ -1,0 +1,57 @@
+package abstractGameObjects;
+
+import java.util.HashMap;
+import java.util.Random;
+
+import abstractGameObjects.AbstractCard.arschlochCard;
+
+public class DeckOfCards {
+
+	public static class DeckOfArschlochcards{
+		
+				
+		private final static int CARD_STACK_SIZE = 32;
+		
+		public static arschlochCard[] deckOfCards = new arschlochCard[CARD_STACK_SIZE + 1]; // 0 will always be empty 
+		
+		public static void createDeckOfCards() throws Exception{
+			initCardNames();
+			deckOfCards[0] = null;
+			for(int Index__numberOfDeck=1; Index__numberOfDeck <= CARD_STACK_SIZE; Index__numberOfDeck++){	
+				deckOfCards[Index__numberOfDeck] = new arschlochCard(cardNames.get(Index__numberOfDeck), arschlochCard.getRelNumber(Index__numberOfDeck) , Index__numberOfDeck, arschlochCard.getType(Index__numberOfDeck));
+			}
+		}
+		
+		public static void shuffle_deck(int amount_of_shuffles){
+			arschlochCard[] new_deckOfCards = new arschlochCard[CARD_STACK_SIZE + 1];
+			Random rnd = new Random();
+			for(int i = 0; i < amount_of_shuffles; i++){
+				for(arschlochCard aC : deckOfCards){
+					
+					new_deckOfCards[rnd.nextInt(32) + 1] = aC;
+				}
+				deckOfCards = new_deckOfCards;
+			}
+			deckOfCards = new_deckOfCards;
+		}
+		
+	}
+	public static void main(String[] arggs){
+		try {
+			DeckOfCards.DeckOfArschlochcards.createDeckOfCards();
+			
+			for (arschlochCard aC : DeckOfCards.DeckOfArschlochcards.deckOfCards){
+				System.out.println(aC);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
+
+//TODO: what is done ? ... cards for the start the deck for the start
+//TODO: what has to be done? well there are no meethods for handing cards out from the deck
+//TODO: method for sorting, or different sorting algorithms and techniques like cutting and shuffling
+//TODO: UI
+//TODO: multiplayer

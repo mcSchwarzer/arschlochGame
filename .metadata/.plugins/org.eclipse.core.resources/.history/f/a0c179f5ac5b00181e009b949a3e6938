@@ -1,0 +1,40 @@
+package abstractGameObjectsTest;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import abstractGameObjects.AbstractPlayer.ArschlochPlayer;
+
+public class AbstractPlayerTest {
+
+	ArschlochPlayer player1;
+	ArschlochPlayer player2;
+	ArschlochPlayer player3;
+	@Before
+	public void setUp(){
+		player1 = new ArschlochPlayer("Markus Schwarzer");
+		player2 = new ArschlochPlayer("Max Huber");
+		player3 = new ArschlochPlayer("Martin Kempcke");
+	}
+	
+	@Test
+	public final void test() {
+		
+	}
+	
+	@Test
+	public void placeCardsTest(){
+		
+	}
+	
+	@Test
+	public void removeCardFomHandTest(){
+
+	}
+	
+	@Test
+	public void addCardTohand(){
+		
+	}
+
+}

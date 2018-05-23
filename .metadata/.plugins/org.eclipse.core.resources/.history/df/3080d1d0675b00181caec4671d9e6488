@@ -1,0 +1,49 @@
+package abstractGameObjects;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import abstractGameObjects.AbstractCard.ArschlochCard;
+import abstractGameObjects.DeckOfCards.DeckOfArschlochcards;
+
+public class DeckOfCardsTest {
+
+	DeckOfArschlochcards deckOfCards;
+	
+	@Before
+	public void setUp(){
+		this.deckOfCards = new DeckOfArschlochcards();
+	}
+	
+	
+	
+	
+	@Test
+	public void CardsTest() {
+		assertEquals(ArschlochCard.getCardNames()[0], deckOfCards.getDeckOfCards().get(0).getName());
+		System.out.println(ArschlochCard.getCardNames()[0] + " : " + deckOfCards.getDeckOfCards().get(0).getName());
+		
+		assertEquals(ArschlochCard.getCardNames()[5], deckOfCards.getDeckOfCards().get(5).getName());
+		System.out.println(ArschlochCard.getCardNames()[5] + " : " + deckOfCards.getDeckOfCards().get(5).getName());
+		
+		assertEquals(ArschlochCard.getCardNames()[28], deckOfCards.getDeckOfCards().get(28).getName());
+		System.out.println(ArschlochCard.getCardNames()[28] + " : " + deckOfCards.getDeckOfCards().get(28).getName());
+	}
+	
+	@Test
+	public void ShuffleTest(){
+		assertEquals(ArschlochCard.getCardNames()[0], deckOfCards.getDeckOfCards().get(0).getName());
+		System.out.println(ArschlochCard.getCardNames()[0] + " : " + deckOfCards.getDeckOfCards().get(0).getName());
+		
+		this.deckOfCards.shuffle_deck(30);
+		System.out.println(this.deckOfCards);
+		
+		assertNotEquals(ArschlochCard.getCardNames()[0], this.deckOfCards.getDeckOfCards().get(0));
+	}
+
+	
+	
+	//expected --> actual
+}

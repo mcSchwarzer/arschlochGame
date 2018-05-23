@@ -1,0 +1,43 @@
+package abstractGameObjects;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import abstractGameObjects.AbstractCard.ArschlochCard;
+
+public class AbstractCardTest{
+	ArschlochCard[] cards;
+
+	@Before
+	public void setUp() throws Exception{
+		cards = new ArschlochCard[31];
+		for(int i = 0; i < 31; i++){
+			cards[i] = new ArschlochCard(i);
+		}
+
+	}
+
+
+
+
+	@Test
+	public void getterTest(){
+		for (int CardPos = 0; CardPos < 31; CardPos++){
+			ArschlochCard aCard = new ArschlochCard(CardPos);
+			assertEquals("ERROR", aCard.getName(), aCard.getCardNames()[CardPos]);
+			System.out.println(aCard.getName() + ":" + aCard.getCardNames()[CardPos]);
+		}
+
+	}
+
+
+	//expected --> actual
+
+
+
+
+
+
+}

@@ -1,0 +1,38 @@
+package testSuite;
+
+import org.junit.runner.JUnitCore;
+import org.junit.runner.Result;
+import org.junit.runner.notification.Failure;
+
+public class ArschlochTestRunner {
+	static int testSuiteRunCounter = 0;
+
+	public static boolean runTestSuite(int cnt){
+		if(cnt > 5){return false;}
+		Result testResult = JUnitCore.runClasses(ArschlochTestSuite.class);
+		for (Failure fail : testResult.getFailures()) {
+			System.out.println(fail.toString());
+		}
+		return testResult.wasSuccessful();
+	}
+	
+	public static void Runner(int cnt){
+		if (runTestSuite(testSuiteRunCounter) == true) {
+			System.out.println("TestSuite was SUCCESFUL");
+		}
+		else {
+			testSuiteRunCounter+=1;
+			runTestSuite(testSuiteRunCounter);
+		}
+	}
+	
+	
+	public static void main (String[] args){
+
+		Runner(testSuiteRunCounter);
+		
+		
+	}
+	
+	
+}

@@ -1,0 +1,68 @@
+package abstractGameObjects;
+
+public class AbstractCard {
+	
+	
+	public static class ArschlochCard implements Comparable<ArschlochCard>{
+		private int posInDeck; //hearts, diamonds, spades, clubs
+		private String name; // full name like "nine of diamonds"
+		private static String[] cardNames = {		
+				"Seven of Hearts","Eight of Hearts","Nine of Hearts","Ten of Hearts","Jack of Hearts","Queen of Hearts","King of Hearts","ACE of Hearts",
+				"Seven of Diamonds","Eight of Diamonds","Nine of Diamonds","Ten of Diamonds","Jack of Diamonds","Queen of Diamonds","King of Diamonds","ACE of Diamonds",
+				"Seven of Spades","Eight of Spades","Nine of Spades","Ten of Spades","Jack of Spades","Queen of Spades","King of Spades","ACE of Spades",
+				"Seven of Clubs","Eight of Clubs","Nine of Clubs","Ten of Clubs","Jack of Clubs","Queen of Clubs","King of Clubs","ACE of Clubs"};
+		
+		
+
+		public ArschlochCard(int posInDeck){
+			this.setName(ArschlochCard.getCardNames()[posInDeck]);
+			this.setPosInDeck(posInDeck);
+		}		
+		
+		@Override
+		public int compareTo(ArschlochCard o) {
+			
+			return this.posInDeck - o.posInDeck;
+		}
+
+		@Override
+		public String toString() {
+			if (this.equals(null)){return "";}
+			return name + "[" + posInDeck + "]";
+		}
+
+		
+		
+		public int getType() throws Exception{
+			int posInDeck;
+			if((posInDeck = this.getPosInDeck()) <= 31){
+				return (int) posInDeck/8;
+			}
+			throw new Exception("invalid_numberOfDeck" + this.getPosInDeck());	
+		}
+		public int getPosInType(){
+			return this.getPosInDeck() % 8;
+		}
+		public int getPosInDeck() {
+			return posInDeck;
+		}
+		public void setPosInDeck(int posInDeck) {
+			this.posInDeck = posInDeck;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public static String[] getCardNames() {
+			return cardNames;
+		}
+
+		
+		
+		
+		
+		
+	}	
+}

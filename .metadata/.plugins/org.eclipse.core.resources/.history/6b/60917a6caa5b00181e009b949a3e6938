@@ -1,0 +1,72 @@
+package abstractGameObjectsTest;
+
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import abstractGameObjects.AbstractCard;
+import abstractGameObjects.AbstractCard.ArschlochCard;
+
+public class AbstractCardTest{
+	List<ArschlochCard> cards;
+
+	@Before
+	public void setUp() throws Exception{
+		cards = new ArrayList<ArschlochCard>();
+		for(int i = 0; i <= 31; i++){
+			cards.add(new ArschlochCard(i));
+		}
+	}
+
+	@Test
+	public void getterTest() throws Exception{
+		
+		int CardPos = 0;
+		for(ArschlochCard aCard : cards){
+			
+			assertEquals(ArschlochCard.getCardNames()[CardPos], aCard.getName());
+			System.out.println("Kompletter Name der Karte: " + ArschlochCard.getCardNames()[CardPos] + " = " + aCard.getName());
+			
+			assertEquals(CardPos, CardPos, aCard.getPosInDeck());
+			System.out.println("Position im gesamten Kartenstapel: " + CardPos + " = " + aCard.getPosInDeck());
+			
+			assertEquals(CardPos % 8, aCard.getPosInType());
+			System.out.println("Position im gleichen Type: " + CardPos%8 + " = " + aCard.getPosInType());
+			
+			assertEquals(CardPos / 8, aCard.getType());
+			System.out.println("Typ der Karte: " + CardPos/8 + " = " + aCard.getType() + "\n");
+			CardPos++;
+			
+			ArschlochCard tCard1 = new ArschlochCard(26);
+			ArschlochCard tCard2 = new ArschlochCard(26);			
+			assertEquals(tCard1, tCard2);
+			assertNotEquals(tCard1, new ArschlochCard(25));
+		}
+	}
+	
+	@Test
+	public void compareToTest(){
+		ArschlochCard aC1 = cards.get(0);
+		ArschlochCard aC2 = cards.get(6);
+		ArschlochCard aC3 = cards.get(24);
+		
+		Collections.shuffle(cards);
+		assertNotEquals(cards.get(0),aC1);
+		assertNotEquals(cards.get(6),aC2);
+		assertNotEquals(cards.get(24),aC3);
+		Collections.sort(cards);
+		
+		aC1 = cards.get(0);
+		aC2 = cards.get(6);
+		aC3 = cards.get(24);
+		assertEquals(cards.get(0), aC1);
+		assertEquals(cards.get(6), aC2);
+		assertEquals(cards.get(24), aC3);
+	}
+	//expected --> actual
+}

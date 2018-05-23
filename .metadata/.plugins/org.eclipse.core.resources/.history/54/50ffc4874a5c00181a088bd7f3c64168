@@ -1,0 +1,145 @@
+package abstractGameObjects;
+
+import java.util.ArrayList;
+
+import abstractGameObjects.AbstractCard.ArschlochCard;
+import abstractGameObjects.AbstractCardStack.ArschlochCardStack;
+import abstractGameObjects.AbstractPlayer.ArschlochPlayer;
+import abstractGameObjects.DeckOfCards.DeckOfArschlochcards;
+
+public class ArschlochGame {
+
+	private Config config;
+	private ArrayList<ArschlochPlayer> player;
+	
+	private DeckOfArschlochcards deckOfCards;
+	private ArschlochCardStack stackOfCards;
+	
+	
+	
+	
+	
+	
+	
+	public void handOutCards(){
+		int playerCnt = 0;
+		for (ArschlochCard aC : deckOfCards.getDeckOfCards()) {
+			if(playerCnt > config.getNumber_of_players() - 1){playerCnt = 0;}
+			player.get(playerCnt).addCardToHand(aC);
+			
+			playerCnt++;
+		}
+	}
+	
+	public ArschlochCard getSwapWish(){
+		/**
+		 * Get the userInput Card !!! UI!
+		 * 
+		 * **/
+		
+		return new ArschlochCard(0);
+	}
+	
+	public void Swap(ArschlochPlayer King, ArschlochPlayer Ass, int times){
+		
+		int cnt = 0;
+		while(cnt < times){
+			boolean res = King.askForCard(Ass, getSwapWish());
+			if(res == true){
+				cnt++;
+			}
+		}	
+	}
+	
+	
+	
+	
+	public class ArschlochGameRanking{
+		ArschlochPlayer king;
+		ArschlochPlayer sndKing;
+		ArrayList<ArschlochPlayer> neutral;
+		ArschlochPlayer ass;
+		ArschlochPlayer sndAss;
+		
+		public ArschlochGameRanking(ArrayList<ArschlochPlayer> StartPos){
+			setNeutral(StartPos);
+		}
+
+		public ArschlochPlayer getKing() {
+			return king;
+		}
+		public void setKing(ArschlochPlayer king) {
+			this.king = king;
+		}
+		public ArschlochPlayer getSndKing() {
+			return sndKing;
+		}
+		public void setSndKing(ArschlochPlayer sndKing) {
+			this.sndKing = sndKing;
+		}
+		public ArrayList<ArschlochPlayer> getNeutral() {
+			return neutral;
+		}
+		public void setNeutral(ArrayList<ArschlochPlayer> neutral) {
+			this.neutral = neutral;
+		}
+		public ArschlochPlayer getAss() {
+			return ass;
+		}
+		public void setAss(ArschlochPlayer ass) {
+			this.ass = ass;
+		}
+		public ArschlochPlayer getSndAss() {
+			return sndAss;
+		}
+		public void setSndAss(ArschlochPlayer sndAss) {
+			this.sndAss = sndAss;
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public Config getConfig() {
+		return config;
+	}
+	public void setConfig(Config config) {
+		this.config = config;
+	}
+	public ArrayList<ArschlochPlayer> getPlayer() {
+		return player;
+	}
+	public void setPlayer(ArrayList<ArschlochPlayer> player) {
+		this.player = player;
+	}
+	public DeckOfArschlochcards getDeckOfCards() {
+		return deckOfCards;
+	}
+	public void setDeckOfCards(DeckOfArschlochcards deckOfCards) {
+		this.deckOfCards = deckOfCards;
+	}
+	public ArschlochCardStack getStackOfCards() {
+		return stackOfCards;
+	}
+	public void setStackOfCards(ArschlochCardStack stackOfCards) {
+		this.stackOfCards = stackOfCards;
+	}
+}

@@ -1,0 +1,87 @@
+package abstractGameObjects;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class AbstractCard {
+	
+	
+	public static class arschlochCard implements Comparable<arschlochCard>{
+		private int posInDeck; //hearts, diamonds, spades, clubs
+		private String name; // full name like "nine of diamonds"
+		
+		
+		public arschlochCard(String name, int posInDeck)
+		{
+			this.setName(name);
+			this.setPosInDeck(posInDeck);
+		}
+
+		public char getType() throws Exception{
+			
+			switch(this.getPosInDeck()) {	// cant be 0 because the array in cardDeck will init the [0] with null !
+			case 1: case 2: case 3: case 4: case 5: case 6: case 7: case 8: return 'h';
+			case 9: case 10: case 11: case 12: case 13: case 14: case 15: case 16: return 'd';
+			case 17: case 18: case 19: case 20: case 21: case 22: case 23: case 24: return 's';
+			case 25: case 26: case 27: case 28: case 29: case 30: case 31: case 32: return 'h';
+			case 0: throw new Exception("numberOfDeckCardCantBe_null");
+			}
+			throw new Exception("invalid_numberOfDeck");
+		}
+		
+		public int getRelNumber(){
+			int tmp = this.getPosInDeck() % 8;						//TODO: hardCoded .. !
+			return tmp + (8 - 2*tmp);
+		}
+		
+		
+		
+		@Override
+		public int compareTo(arschlochCard o) {
+			
+			return this.posInDeck - o.posInDeck;
+		}
+
+		@Override
+		public String toString() {
+			if (this.equals(null)){return "";}
+			return name + "[" + posInDeck + "]";
+		}
+
+		
+		
+		
+		public int getPosInDeck() {
+			return posInDeck;
+		}
+		public void setPosInDeck(int posInDeck) {
+			this.posInDeck = posInDeck;
+		}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		
+		
+		
+		
+	}
+	public static void main(String[] args){
+		
+		arschlochCard a = new AbstractCard.arschlochCard("nine of Diamonds"	, 9	, 11, 'd');
+		arschlochCard aa = new AbstractCard.arschlochCard("Ace of Spades"	, 14, 24, 's');
+		arschlochCard aaa = new AbstractCard.arschlochCard("jack of clubs"	, 11, 29, 'c');
+		ArrayList<arschlochCard> list = new ArrayList<arschlochCard>();
+		list.add(a);list.add(aaa);list.add(aa);
+		
+		Collections.sort(list);
+		for(arschlochCard aC : list){
+			System.out.println(aC);
+		}
+	}
+	
+	
+	
+}

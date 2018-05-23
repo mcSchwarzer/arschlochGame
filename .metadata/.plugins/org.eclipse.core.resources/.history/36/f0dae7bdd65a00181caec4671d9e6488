@@ -1,0 +1,59 @@
+package abstractGameObjects;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import abstractGameObjects.AbstractCard.ArschlochCard;
+
+public class AbstractCardTest{
+	ArschlochCard[] cards;
+
+	@Before
+	public void setUp() throws Exception{
+		cards = new ArschlochCard[32];
+		for(int i = 0; i <= 31; i++){
+			cards[i] = new ArschlochCard(i);
+		}
+
+	}
+
+
+
+
+	@Test
+	public void getterTest() throws Exception{
+		
+		int CardPos = 0;
+		for(ArschlochCard aCard : cards){
+			
+			assertEquals(ArschlochCard.getCardNames()[CardPos], aCard.getName());
+			System.out.println("Kompletter Name der Karte: " + ArschlochCard.getCardNames()[CardPos] + " = " + aCard.getName());
+			
+			assertEquals(CardPos, CardPos, aCard.getPosInDeck());
+			System.out.println("Position im gesamten Kartenstapel: " + CardPos + " = " + aCard.getPosInDeck());
+			
+			assertEquals(CardPos % 8, aCard.getPosInType());
+			System.out.println("Position im gleichen Type: " + CardPos%8 + " = " + aCard.getPosInType());
+			
+			assertEquals(CardPos / 8, aCard.getType());
+			System.out.println("Typ der Karte: " + CardPos/8 + " = " + aCard.getType() + "\n");
+			CardPos++;
+		}
+	}
+	
+	@Test
+	public void compareToTest(){
+		
+	}
+
+
+	//expected --> actual
+
+
+
+
+
+
+}
